@@ -1,0 +1,13 @@
+.popup__form-button {
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    min-height: 50px;
+  }
+  .popup__form-button:hover {
+    opacity: 0.8;
+  }
