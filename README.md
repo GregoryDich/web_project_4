@@ -8,7 +8,7 @@ Make web page with cards. HTML CSS JS is used.
 
 * [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
 
-* [Link to the project in GH Pages] (https://gregorydich.github.io/web_project_4/index.html)
+* [Link to the project in GH Pages](https://gregorydich.github.io/web_project_4/index.html)
 
 **Images**
 
