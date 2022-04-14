@@ -5,7 +5,7 @@
   background-color: transparent;
   border: none;
   align-self: center;
-  background-image: url(../../../images/editButton.svg);
+  background-image: url("../../../images/editButton.svg");
   background-size: cover;
 }
 .user__edit-button:hover {

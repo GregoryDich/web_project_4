@@ -2,7 +2,7 @@
   height: 19px;
   width: 22px;
   background-color: transparent;
-  background-image: url(../../../images/likeButton.svg);
+  background-image: url("../../../images/likeButton.svg");
   background-size: cover;
   border: none;
 }
