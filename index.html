@@ -21,11 +21,7 @@
         <div class="user__information">
           <div class="user__name-wrapper">
             <h1 class="user__name">Jacques Cousteau</h1>
-            <img
-              class="user__edit-button"
-              src="./images/editButton.svg"
-              alt="edit buttom icon"
-            />
+            <button type="button" class="user__edit-button"></button>
           </div>
           <p class="user__profession">Explorer</p>
         </div>
@@ -46,11 +42,7 @@
           />
           <div class="card__info">
             <h2 class="card__description">Yosemite Valley</h2>
-            <img
-              class="card__like-button"
-              src="./images/likeButton.svg"
-              alt="like button icon"
-            />
+            <button type="button" class="card__like-button"></button>
           </div>
         </div>
         <div class="card">
@@ -61,11 +53,7 @@
           />
           <div class="card__info">
             <h2 class="card__description">Lake Louise</h2>
-            <img
-              class="card__like-button"
-              src="./images/likeButton.svg"
-              alt="like button icon"
-            />
+            <button type="button" class="card__like-button"></button>
           </div>
         </div>
         <div class="card">
@@ -76,11 +64,7 @@
           />
           <div class="card__info">
             <h2 class="card__description">Bald Mountains</h2>
-            <img
-              class="card__like-button"
-              src="./images/likeButton.svg"
-              alt="like button icon"
-            />
+            <button type="button" class="card__like-button"></button>
           </div>
         </div>
         <div class="card">
@@ -91,11 +75,7 @@
           />
           <div class="card__info">
             <h2 class="card__description">Latemar</h2>
-            <img
-              class="card__like-button"
-              src="./images/likeButton.svg"
-              alt="like button icon"
-            />
+            <button type="button" class="card__like-button"></button>
           </div>
         </div>
         <div class="card">
@@ -106,11 +86,7 @@
           />
           <div class="card__info">
             <h2 class="card__description">Vanoise National Park</h2>
-            <img
-              class="card__like-button"
-              src="./images/likeButton.svg"
-              alt="like button icon"
-            />
+            <button type="button" class="card__like-button"></button>
           </div>
         </div>
         <div class="card">
@@ -121,25 +97,17 @@
           />
           <div class="card__info">
             <h2 class="card__description">Lago di Braies</h2>
-            <img
-              class="card__like-button"
-              src="./images/likeButton.svg"
-              alt="like button icon"
-            />
+            <button type="button" class="card__like-button"></button>
           </div>
         </div>
       </section>
     </main>
     <footer class="footer">
-      <p>&copy; 2022 Around The U.S.</p>
+      <p class="footer__text">&copy; 2022 Around The U.S.</p>
     </footer>
     <div class="popup">
       <div class="popup__container">
-        <img
-          class="popup__close-button"
-          src="./images/closeButton.svg"
-          alt="close button icon"
-        />
+        <button type="button" class="popup__close-button"></button>
         <h2 class="popup__title">Edit profile</h2>
         <form
           class="popup__form popup__form_type_profile"
@@ -150,11 +118,13 @@
             class="popup__form-input popup__form-input_type_name"
             type="text"
             placeholder="Name"
+            name="user-name"
           />
           <input
             class="popup__form-input popup__form-input_type_profession"
             type="text"
             placeholder="About me"
+            name="user-profession"
           />
           <button class="popup__form-button" type="submit">Save</button>
         </form>

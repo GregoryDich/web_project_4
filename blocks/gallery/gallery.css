@@ -1,14 +1,14 @@
 .gallery {
-    max-width: 880px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 17px;
-    row-gap: 21px;
-    justify-content: center;
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 17px;
+  row-gap: 21px;
+  justify-content: center;
+}
+@media screen and (max-width: 880px) {
+  .gallery {
+    margin: 0 19px;
   }
-  @media screen and (max-width: 880px) {
-    .gallery {
-      margin: 36px 19px 0 19px;
-    }
-  }
+}
