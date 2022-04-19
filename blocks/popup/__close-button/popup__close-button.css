@@ -8,6 +8,7 @@
   background-image: url("../../../images/closeButton.svg");
   background-size: cover;
   border: none;
+  cursor: pointer;
 }
 @media screen and (max-width: 680px) {
   .popup__close-button {
