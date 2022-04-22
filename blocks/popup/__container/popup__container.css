@@ -8,6 +8,13 @@
   max-width: 430px;
   padding: 36px;
 }
+.popup_type_image .popup__container {
+  max-width: fit-content;
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
 @media screen and (max-width: 680px) {
   .popup__container {
     max-width: 282px;

@@ -33,81 +33,17 @@
           />
         </button>
       </section>
-      <section class="gallery">
-        <div class="card">
-          <img
-            class="card__image"
-            src="./images/yosemite.png"
-            alt="yosemite valley photo"
-          />
-          <div class="card__info">
-            <h2 class="card__description">Yosemite Valley</h2>
-            <button type="button" class="card__like-button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            class="card__image"
-            src="./images/louise.png"
-            alt="Lake Louise photo"
-          />
-          <div class="card__info">
-            <h2 class="card__description">Lake Louise</h2>
-            <button type="button" class="card__like-button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            class="card__image"
-            src="./images/bald.png"
-            alt="Bald Mountains photo"
-          />
-          <div class="card__info">
-            <h2 class="card__description">Bald Mountains</h2>
-            <button type="button" class="card__like-button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            class="card__image"
-            src="./images/latemar.png"
-            alt="latemar photo"
-          />
-          <div class="card__info">
-            <h2 class="card__description">Latemar</h2>
-            <button type="button" class="card__like-button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            class="card__image"
-            src="./images/vanoise.png"
-            alt="vanoise photo"
-          />
-          <div class="card__info">
-            <h2 class="card__description">Vanoise National Park</h2>
-            <button type="button" class="card__like-button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            class="card__image"
-            src="./images/lago.png"
-            alt="lago di braies photo"
-          />
-          <div class="card__info">
-            <h2 class="card__description">Lago di Braies</h2>
-            <button type="button" class="card__like-button"></button>
-          </div>
-        </div>
-      </section>
+      <section class="gallery"></section>
     </main>
     <footer class="footer">
       <p class="footer__text">&copy; 2022 Around The U.S.</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_type_profile">
       <div class="popup__container">
-        <button type="button" class="popup__close-button"></button>
+        <button
+          type="button"
+          class="popup__close-button popup__close-button_type_profile"
+        ></button>
         <h2 class="popup__title">Edit profile</h2>
         <form
           class="popup__form popup__form_type_profile"
@@ -130,6 +66,56 @@
         </form>
       </div>
     </div>
+    <div class="popup popup_type_place">
+      <div class="popup__container">
+        <button
+          type="button"
+          class="popup__close-button popup__close-button_type_place"
+        ></button>
+        <h2 class="popup__title">New Place</h2>
+        <form
+          class="popup__form popup__form_type_place"
+          action="submit"
+          name="place"
+        >
+          <input
+            class="popup__form-input popup__form-input_type_title"
+            type="text"
+            placeholder="Title"
+            name="place-title"
+          />
+          <input
+            class="popup__form-input popup__form-input_type_url"
+            type="url"
+            placeholder="Image URL"
+            name="place-url"
+          />
+          <button class="popup__form-button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_image">
+      <div class="popup__container">
+        <button
+          type="button"
+          class="popup__close-button popup__close-button_type_image"
+        ></button>
+        <img class="popup__image" src="#" alt="" />
+        <span class="popup__image-title"></span>
+      </div>
+    </div>
+    <template id="template">
+      <div class="card">
+        <button class="card__delete-button" type="button">
+          <img src="./images/deleteButton.svg" alt="trash basket" />
+        </button>
+        <img class="card__image" src="#" alt="" />
+        <div class="card__info">
+          <h2 class="card__description"></h2>
+          <button type="button" class="card__like-button"></button>
+        </div>
+      </div>
+    </template>
     <script src="./scripts/script.js"></script>
   </body>
 </html>
