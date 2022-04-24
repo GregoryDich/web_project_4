@@ -59,16 +59,22 @@ initialCards.forEach((card) => {
 });
 
 //functions
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+}
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+}
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   userName.textContent = nameInput.value;
   userProfession.textContent = profInput.value;
-  userPopup.classList.remove("popup_opened");
+  closePopup(userPopup);
 }
 function handlePlaceFormSubmit(evt) {
   evt.preventDefault();
   gallery.prepend(createCard({ name: placeTitle.value, link: placeUrl.value }));
-  addPlacePopup.classList.remove("popup_opened");
+  closePopup(addPlacePopup);
 }
 function createCard(cardData) {
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
@@ -87,7 +93,7 @@ function createCard(cardData) {
       cardElement.remove();
     });
   cardElement.querySelector(".card__image").addEventListener("click", () => {
-    imagePopup.classList.add("popup_opened");
+    openPopup(imagePopup);
     imagePopup.querySelector(".popup__image").src = cardData.link;
     imagePopup.querySelector(".popup__image-title").textContent = cardData.name;
     imagePopup.querySelector(".popup__image").alt = cardData.name;
@@ -97,21 +103,21 @@ function createCard(cardData) {
 
 //event listeners
 editButton.addEventListener("click", () => {
-  userPopup.classList.add("popup_opened");
+  openPopup(userPopup);
   nameInput.value = userName.textContent;
   profInput.value = userProfession.textContent;
 });
 closeProfileButton.addEventListener("click", () => {
-  userPopup.classList.remove("popup_opened");
+  closePopup(userPopup);
 });
 addPlaceButton.addEventListener("click", () => {
-  addPlacePopup.classList.add("popup_opened");
+  openPopup(addPlacePopup);
 });
 closePlaceButton.addEventListener("click", () => {
-  addPlacePopup.classList.remove("popup_opened");
+  closePopup(addPlacePopup);
 });
 closeImageButton.addEventListener("click", () => {
-  imagePopup.classList.remove("popup_opened");
+  closePopup(imagePopup);
 });
 formUserElement.addEventListener("submit", handleProfileFormSubmit);
 formPlaceElement.addEventListener("submit", handlePlaceFormSubmit);
