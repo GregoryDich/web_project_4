@@ -54,15 +54,23 @@
             class="popup__form-input popup__form-input_type_name"
             type="text"
             placeholder="Name"
-            name="user-name"
+            name="name-input"
+            minlength="2"
+            maxlength="40"
+            required
           />
+          <span class="popup__error name-input-error"></span>
           <input
             class="popup__form-input popup__form-input_type_profession"
             type="text"
             placeholder="About me"
-            name="user-profession"
+            name="profession-input"
+            minlength="2"
+            maxlength="200"
+            required
           />
-          <button class="popup__form-button" type="submit">Save</button>
+          <span class="popup__error profession-input-error"></span>
+          <button class="popup__button popup__form-button" type="submit">Save</button>
         </form>
       </div>
     </div>
@@ -82,14 +90,20 @@
             class="popup__form-input popup__form-input_type_title"
             type="text"
             placeholder="Title"
-            name="place-title"
+            name="place-input"
+            minlength="2"
+          maxlength="30"
+          required
           />
+          <span class="popup__error place-input-error"></span>
           <input
             class="popup__form-input popup__form-input_type_url"
             type="url"
             placeholder="Image URL"
-            name="place-url"
+            name="url-input"
+            required
           />
+          <span class="popup__error url-input-error"></span>
           <button class="popup__form-button" type="submit">Save</button>
         </form>
       </div>
@@ -116,6 +130,7 @@
         </div>
       </div>
     </template>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/script.js"></script>
   </body>
 </html>

@@ -61,6 +61,16 @@ initialCards.forEach((card) => {
 //functions
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+  }
+})
+  popup.addEventListener('click', evt => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup);
+    }
+  })
 }
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
@@ -121,3 +131,4 @@ closeImageButton.addEventListener("click", () => {
 });
 formUserElement.addEventListener("submit", handleProfileFormSubmit);
 formPlaceElement.addEventListener("submit", handlePlaceFormSubmit);
+
