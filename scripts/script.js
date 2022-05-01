@@ -61,19 +61,25 @@ initialCards.forEach((card) => {
 //functions
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-      closePopup(popup);
+  document.addEventListener('keydown', closeByEscape);
+  popup.addEventListener('click', closeByClick);
+}
+function closeByClick(evt) {
+  if (evt.target.classList.contains('popup_opened')) {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
   }
-})
-  popup.addEventListener('click', evt => {
-    if (evt.target.classList.contains('popup_opened')) {
-      closePopup(popup);
-    }
-  })
+}
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+     const openedPopup = document.querySelector('.popup_opened');
+     closePopup(openedPopup); 
+  }
 }
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener('keydown', closeByEscape);
+  popup.removeEventListener('click', closeByClick);
 }
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -85,12 +91,14 @@ function handlePlaceFormSubmit(evt) {
   evt.preventDefault();
   gallery.prepend(createCard({ name: placeTitle.value, link: placeUrl.value }));
   closePopup(addPlacePopup);
+  formPlaceElement.reset();
 }
 function createCard(cardData) {
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-  cardElement.querySelector(".card__image").src = cardData.link;
+  const cardImage = cardElement.querySelector(".card__image");
+  cardImage.src = cardData.link;
   cardElement.querySelector(".card__description").textContent = cardData.name;
-  cardElement.querySelector(".card__image").alt = cardData.name;
+  cardImage.alt = cardData.name;
   cardElement
     .querySelector(".card__like-button")
     .addEventListener("click", (evt) => {
@@ -102,11 +110,12 @@ function createCard(cardData) {
     .addEventListener("click", () => {
       cardElement.remove();
     });
-  cardElement.querySelector(".card__image").addEventListener("click", () => {
+    cardImage.addEventListener("click", () => {
+      const PopupImageElement = imagePopup.querySelector(".popup__image");
     openPopup(imagePopup);
-    imagePopup.querySelector(".popup__image").src = cardData.link;
+    PopupImageElement.src = cardData.link;
     imagePopup.querySelector(".popup__image-title").textContent = cardData.name;
-    imagePopup.querySelector(".popup__image").alt = cardData.name;
+    PopupImageElement.alt = cardData.name;
   });
   return cardElement;
 }
