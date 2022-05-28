@@ -1,4 +1,11 @@
+//imports 
+
+import Card from "./card.js";
+import FormValidator from "./formValidator.js";
+import { openPopup, closePopup } from "./utils.js";
+
 //initial cards
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -26,7 +33,19 @@ const initialCards = [
   },
 ];
 
+//settings
+
+const validateSelectors = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__form-input",
+  submitButtonSelector: ".popup__form-button",
+  inactiveButtonClass: "popup__form-button_disabled",
+  inputErrorClass: "popup__form-input_type_error",
+  errorClass: "popup__error_active"
+};
+
 //variables
+
 const editButton = document.querySelector(".user__edit-button");
 const userPopup = document.querySelector(".popup_type_profile");
 const userName = document.querySelector(".user__name");
@@ -54,37 +73,18 @@ const gallery = document.querySelector(".gallery");
 const formPlaceSubmitButton = formPlaceElement.querySelector(
   ".popup__form-button"
 );
-const popupImageElement = imagePopup.querySelector(".popup__image");
 const imageCaption = imagePopup.querySelector(".popup__image-title");
 
-//initial content
-initialCards.forEach((card) => {
-  const cardElement = createCard(card);
-  gallery.prepend(cardElement);
-});
+//validators
+
+const profileValidator = new FormValidator(formUserElement, validateSelectors);
+profileValidator.enableValidation();
+
+const placeValidator = new FormValidator(formPlaceElement, validateSelectors);
+placeValidator.enableValidation();
 
 //functions
-function openPopup(popup) {
-  popup.classList.add("popup_opened");
-  document.addEventListener("keydown", closeByEscape);
-  popup.addEventListener("click", closeByClick);
-}
-function closeByClick(evt) {
-  if (evt.target.classList.contains("popup_opened")) {
-    closePopup(evt.target);
-  }
-}
-function closeByEscape(evt) {
-  if (evt.key === "Escape") {
-    const openedPopup = document.querySelector(".popup_opened");
-    closePopup(openedPopup);
-  }
-}
-function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closeByEscape);
-  popup.removeEventListener("click", closeByClick);
-}
+
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   userName.textContent = nameInput.value;
@@ -98,29 +98,9 @@ function handlePlaceFormSubmit(evt) {
   formPlaceElement.reset();
 }
 function createCard(cardData) {
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-  const cardImage = cardElement.querySelector(".card__image");
-  cardImage.src = cardData.link;
-  cardElement.querySelector(".card__description").textContent = cardData.name;
-  cardImage.alt = cardData.name;
-  cardElement
-    .querySelector(".card__like-button")
-    .addEventListener("click", (evt) => {
-      evt.target.classList.toggle("card__like-button_active");
-    });
-  cardElement;
-  cardElement
-    .querySelector(".card__delete-button")
-    .addEventListener("click", () => {
-      cardElement.remove();
-    });
-  cardImage.addEventListener("click", () => {
-    openPopup(imagePopup);
-    popupImageElement.src = cardData.link;
-    imageCaption.textContent = cardData.name;
-    popupImageElement.alt = cardData.name;
-  });
-  return cardElement;
+    const cardInstance = new Card(cardData, cardTemplate);
+    const card = cardInstance.generateCard();
+    return card;
 }
 
 //event listeners
@@ -145,3 +125,13 @@ closeImageButton.addEventListener("click", () => {
 });
 formUserElement.addEventListener("submit", handleProfileFormSubmit);
 formPlaceElement.addEventListener("submit", handlePlaceFormSubmit);
+
+
+//initial content
+initialCards.forEach((card) => {
+  const cardElement = createCard(card);
+  gallery.prepend(cardElement);
+});
+
+//exports
+export { imagePopup, imageCaption };
