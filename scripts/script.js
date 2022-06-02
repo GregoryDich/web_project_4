@@ -1,7 +1,7 @@
 //imports 
 
-import Card from "./card.js";
-import FormValidator from "./formValidator.js";
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 import { openPopup, closePopup } from "./utils.js";
 
 //initial cards
@@ -114,8 +114,7 @@ closeProfileButton.addEventListener("click", () => {
 });
 addPlaceButton.addEventListener("click", () => {
   openPopup(addPlacePopup);
-  formPlaceSubmitButton.disabled = true;
-  formPlaceSubmitButton.classList.add("popup__form-button_disabled");
+  placeValidator.toggleButtonState();
 });
 closePlaceButton.addEventListener("click", () => {
   closePopup(addPlacePopup);

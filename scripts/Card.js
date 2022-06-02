@@ -23,8 +23,8 @@ export default class Card {
         openPopup(imagePopup);
     }
     _handleLikeButton() {
-        this._button = this._card.querySelector('.card__like-button');
-        this._button.classList.toggle('card__like-button_active');
+        const likeButton = this._card.querySelector('.card__like-button');
+        likeButton.classList.toggle('card__like-button_active');
     }
     _handleDeleteButton() {
         this._card.remove();
