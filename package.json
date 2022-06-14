@@ -2,7 +2,7 @@
   "name": "aroundus",
   "version": "1.0.0",
   "description": "aroundus",
-  "main": "./src/pages/script.js",
+  "main": "./src/pages/index.js",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve"

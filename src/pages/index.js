@@ -92,7 +92,7 @@ const cardGallery = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      cardGallery.setItem(createCard({ item }));
+      cardGallery.addItem(createCard({ item }));
     },
   },
   ".gallery"
@@ -106,17 +106,15 @@ const userInfo = new UserInfo({
 
 //functions
 
-function handleProfileFormSubmit() {
-  const values = popupWithProfileForm.getInputValues();
+function handleProfileFormSubmit(values) {
   userInfo.setUserInfo(values);
 }
-function handlePlaceFormSubmit() {
-  const values = popupWithAddCardForm.getInputValues();
+function handlePlaceFormSubmit(values) {
   const item = {
     name: values.place,
     link: values.url,
   };
-  gallery.prepend(createCard({ item }));
+  cardGallery.addItem(createCard({ item }));
 }
 function createCard({ item }) {
   const cardInstance = new Card(
