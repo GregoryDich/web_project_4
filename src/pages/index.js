@@ -30,7 +30,7 @@ const formUserElement = document.querySelector(".popup__form_type_profile");
 const formPlaceElement = document.querySelector(".popup__form_type_place");
 const formAvatarElement = document.querySelector(".popup__form_type_avatar");
 const addPlaceButton = document.querySelector(".user__add-button");
-const editAvatarButton = document.querySelector(".user__avatar_overlay");
+const editAvatarButton = document.querySelector(".user__avatar-overlay");
 const cardTemplate = document.querySelector("#template").content;
 let currentUser = {};
 
