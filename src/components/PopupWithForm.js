@@ -5,14 +5,20 @@ export default class PopupWithForm extends Popup {
     super(popupSelector);
     this._handleSubmit = handleSubmit;
     this._form = this._popup.querySelector(".popup__form");
+    this._data = {};
   }
   _getInputValues() {
-    const values = {};
     const inputs = this._popup.querySelectorAll(".popup__form-input");
     inputs.forEach((input) => {
-      values[input.name] = input.value;
+      this._data[input.name] = input.value;
     });
-    return values;
+    return this._data;
+  }
+  openForDelete(cardId) {
+    super.open();
+    if (cardId) {
+      this._data = cardId;
+    }
   }
   close() {
     super.close();
@@ -21,9 +27,9 @@ export default class PopupWithForm extends Popup {
   setEventListeners() {
     super.setEventListeners();
     this._popup.addEventListener("submit", (evt) => {
-      const values = this._getInputValues();
+      this._data = this._getInputValues();
       evt.preventDefault();
-      this._handleSubmit(values);
+      this._handleSubmit(this._data);
       this.close();
     });
   }
