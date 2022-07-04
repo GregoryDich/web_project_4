@@ -30,7 +30,7 @@ const formUserElement = document.querySelector(".popup__form_type_profile");
 const formPlaceElement = document.querySelector(".popup__form_type_place");
 const formAvatarElement = document.querySelector(".popup__form_type_avatar");
 const addPlaceButton = document.querySelector(".user__add-button");
-const editAvatarButton = document.querySelector(".user__avatar_overlay");
+const editAvatarButton = document.querySelector(".user__avatar-overlay");
 const cardTemplate = document.querySelector("#template").content;
 let currentUser = {};
 
@@ -106,7 +106,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
 //functions
 
 function handleAvatarFormSubmit(values) {
-  popupWithEditAvatarForm.handleButtonText('Saving...');
+  popupWithEditAvatarForm.handleButtonText("Saving...");
   api
     .editAvatar(values)
     .then((res) => {
@@ -115,11 +115,11 @@ function handleAvatarFormSubmit(values) {
     .catch((err) => console.log(err))
     .finally(() => {
       popupWithEditAvatarForm.close();
-      popupWithEditAvatarForm.handleButtonText('Save');
+      popupWithEditAvatarForm.handleButtonText("Save");
     });
 }
 function handleProfileFormSubmit(values) {
-  popupWithProfileForm.handleButtonText('Saving...');
+  popupWithProfileForm.handleButtonText("Saving...");
   api
     .editProfile(values)
     .then((res) => {
@@ -128,22 +128,24 @@ function handleProfileFormSubmit(values) {
     .catch((err) => console.log(err))
     .finally(() => {
       popupWithProfileForm.close();
-      popupWithProfileForm.handleButtonText('Save');
+      popupWithProfileForm.handleButtonText("Save");
     });
 }
 function handleDeleteFormSubmit(card) {
-  popupWithDeleteForm.handleButtonText('Saving...');
-  api.deleteCard(card)
-  .then((res) => {
-    card.deleteCard()})
-    .catch(err => console.log(err))
+  popupWithDeleteForm.handleButtonText("Saving...");
+  api
+    .deleteCard(card)
+    .then((res) => {
+      card.deleteCard();
+    })
+    .catch((err) => console.log(err))
     .finally(() => {
       popupWithDeleteForm.close();
-      popupWithDeleteForm.handleButtonText('Yes');
+      popupWithDeleteForm.handleButtonText("Yes");
     });
 }
 function handlePlaceFormSubmit(values) {
-  popupWithAddCardForm.handleButtonText('Saving...');
+  popupWithAddCardForm.handleButtonText("Saving...");
   api
     .addCard(values)
     .then((res) => {
@@ -152,7 +154,7 @@ function handlePlaceFormSubmit(values) {
     .catch((err) => console.log(err))
     .finally(() => {
       popupWithAddCardForm.close();
-      popupWithAddCardForm.handleButtonText('Save');
+      popupWithAddCardForm.handleButtonText("Save");
     });
 }
 function createCard({ item }) {

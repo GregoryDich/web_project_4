@@ -39,5 +39,5 @@
 @import url(../blocks/card/__like-button-wrapper/card__like-button-wrapper.css);
 @import url(../blocks/card/__like-counter/card__like-counter.css);
 @import url(../blocks/user/__avatar-image/user__avatar_image.css);
-@import url(../blocks/user/__avatar/_overlay/user__avatar_overlay.css);
-@import url(../blocks/user/__avatar/_overlay-icon/user__avatar_overlay-icon.css);
+@import url(../blocks/user/__avatar-overlay/user__avatar-overlay.css);
+@import url(../blocks/user/__avatar-overlay-icon/user__avatar-overlay-icon.css);
