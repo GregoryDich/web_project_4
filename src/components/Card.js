@@ -42,8 +42,7 @@ export default class Card {
     this._handleCardLike(isLiked, this);
   }
   _setEventListeners() {
-    this._card
-      .querySelector(".card__like-button")
+    this._likeButton
       .addEventListener("click", () => {
         this._handleLikeButton();
       });

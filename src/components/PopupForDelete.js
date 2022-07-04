@@ -11,14 +11,12 @@ export default class PopupForDelete extends Popup {
     if (cardId) {
       this._data = cardId;
     }
+    return this._data;
   }
-  setEvetntListeners() {
-    super.setEventListeners();
+  setEventListeners() {
     this._popup.addEventListener("submit", (evt) => {
-      const values = this._data;
       evt.preventDefault();
-      this._handleSubmit(values);
-      this.close();
+      this._handleSubmit(this._data);
     });
   }
 }

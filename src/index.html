@@ -17,9 +17,9 @@
     <main>
       <section class="user">
         <div class="user__avatar">
-          <div class="user__avatar-overlay">
+          <div class="user__avatar_overlay">
             <img
-              class="user__avatar-overlay-icon"
+              class="user__avatar_overlay-icon"
               src="<%=require('./images/pencil.svg')%>"
             />
           </div>
@@ -117,7 +117,7 @@
             required
           />
           <span class="popup__error url-input-error"></span>
-          <button class="popup__form-button" type="submit">Save</button>
+          <button class="popup__button popup__form-button" type="submit">Save</button>
         </form>
       </div>
     </div>
@@ -167,7 +167,7 @@
         <form
           class="popup__form popup__form_type_delete"
           name="deleteCard"
-          action="submit"
+          action="#"
           novalidate
         >
           <button class="popup__button popup__form-button" type="submit">

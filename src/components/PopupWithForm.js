@@ -6,19 +6,13 @@ export default class PopupWithForm extends Popup {
     this._handleSubmit = handleSubmit;
     this._form = this._popup.querySelector(".popup__form");
     this._data = {};
+    this._inputs = this._popup.querySelectorAll(".popup__form-input");
   }
   _getInputValues() {
-    const inputs = this._popup.querySelectorAll(".popup__form-input");
-    inputs.forEach((input) => {
+    this._inputs.forEach((input) => {
       this._data[input.name] = input.value;
     });
     return this._data;
-  }
-  openForDelete(cardId) {
-    super.open();
-    if (cardId) {
-      this._data = cardId;
-    }
   }
   close() {
     super.close();
@@ -30,7 +24,6 @@ export default class PopupWithForm extends Popup {
       this._data = this._getInputValues();
       evt.preventDefault();
       this._handleSubmit(this._data);
-      this.close();
     });
   }
 }
