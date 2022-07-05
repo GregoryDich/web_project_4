@@ -9,31 +9,20 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupForDelete from "../components/PopupForDelete.js";
 import Api from "../components/Api.js";
+import validateSelectors from "../utils/constants";
+import {
+  editButton,
+  nameInput,
+  profInput,
+  formUserElement,
+  formPlaceElement,
+  formAvatarElement,
+  addPlaceButton,
+  editAvatarButton,
+  cardTemplate,
+} from "../utils/constants";
 
-//settings
-
-const validateSelectors = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__form-input",
-  submitButtonSelector: ".popup__form-button",
-  inactiveButtonClass: "popup__form-button_disabled",
-  inputErrorClass: "popup__form-input_type_error",
-  errorClass: "popup__error_active",
-};
-
-//variables
-
-const editButton = document.querySelector(".user__edit-button");
-const nameInput = document.querySelector(".popup__form-input_type_name");
-const profInput = document.querySelector(".popup__form-input_type_profession");
-const formUserElement = document.querySelector(".popup__form_type_profile");
-const formPlaceElement = document.querySelector(".popup__form_type_place");
-const formAvatarElement = document.querySelector(".popup__form_type_avatar");
-const addPlaceButton = document.querySelector(".user__add-button");
-const editAvatarButton = document.querySelector(".user__avatar-overlay");
-const cardTemplate = document.querySelector("#template").content;
 let currentUser = {};
-
 //validators
 
 const profileValidator = new FormValidator(formUserElement, validateSelectors);
@@ -111,10 +100,10 @@ function handleAvatarFormSubmit(values) {
     .editAvatar(values)
     .then((res) => {
       userInfo.setUserAvatar(res.avatar);
+      popupWithEditAvatarForm.close();
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      popupWithEditAvatarForm.close();
       popupWithEditAvatarForm.handleButtonText("Save");
     });
 }
@@ -124,10 +113,10 @@ function handleProfileFormSubmit(values) {
     .editProfile(values)
     .then((res) => {
       userInfo.setUserInfo(res);
+      popupWithProfileForm.close();
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      popupWithProfileForm.close();
       popupWithProfileForm.handleButtonText("Save");
     });
 }
@@ -137,10 +126,10 @@ function handleDeleteFormSubmit(card) {
     .deleteCard(card)
     .then((res) => {
       card.deleteCard();
+      popupWithDeleteForm.close();
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      popupWithDeleteForm.close();
       popupWithDeleteForm.handleButtonText("Yes");
     });
 }
@@ -150,10 +139,10 @@ function handlePlaceFormSubmit(values) {
     .addCard(values)
     .then((res) => {
       cardGallery.addItem(res);
+      popupWithAddCardForm.close();
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      popupWithAddCardForm.close();
       popupWithAddCardForm.handleButtonText("Save");
     });
 }
